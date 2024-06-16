@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from base.views import *
+from django.conf.urls.static import static
+from CreakInterview import settings
 
 
 urlpatterns = [
@@ -34,3 +36,6 @@ generation = [
 
 urlpatterns += code_editor_action
 urlpatterns += generation
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
